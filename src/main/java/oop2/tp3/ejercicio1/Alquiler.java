@@ -12,7 +12,10 @@ public class Alquiler {
     public int diasAlquilados() {
         return this.diasAlquilados;
     }
-
+    public double calcularPrecio(double monto){
+        return copia.calcularPrecio(diasAlquilados, monto);
+    }
+    
     public CopiaLibro copia() {
         return this.copia;
     }

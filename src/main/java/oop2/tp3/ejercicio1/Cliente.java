@@ -18,21 +18,7 @@ public class Cliente {
         for (Alquiler alquiler : alquileres) {
             double monto = 0;
 // determine amounts for each line
-            switch (alquiler.copia().libro().codigoPrecio()) {
-                case Libro.REGULARES:
-                    monto += 2;
-                    if (alquiler.diasAlquilados() > 2)
-                        monto += (alquiler.diasAlquilados() - 2) * 1.5;
-                    break;
-                case Libro.NUEVO_LANZAMIENTO:
-                    monto += alquiler.diasAlquilados() * 3;
-                    break;
-                case Libro.INFANTILES:
-                    monto += 1.5;
-                    if (alquiler.diasAlquilados() > 3)
-                        monto += (alquiler.diasAlquilados() - 3) * 1.5;
-                    break;
-            }
+            monto = alquiler.calcularPrecio(monto);
             total += monto;
             // sumo puntos por alquiler
             puntosAlquilerFrecuente++;
